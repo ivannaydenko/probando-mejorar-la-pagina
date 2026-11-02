@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Panel administrativo | Aerol&iacute;neas Low Cost
+  </title>
+  <link href="styles.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <header class="topbar">
+   <a class="brand" href="index.html">
+    <span class="brand-mark">
+     ✈
+    </span>
+    <span>
+     Aerol&iacute;neas
+     <span class="brand-light">
+      Low Cost
+     </span>
+    </span>
+   </a>
+   <nav class="main-nav">
+    <a href="index.html">
+     Ver p&aacute;gina p&uacute;blica
+    </a>
+   </nav>
+   <div class="account-actions">
+    <span class="user-greeting" id="admin-greeting">
+    </span>
+    <button class="btn btn-quiet" id="admin-logout">
+     Cerrar sesi&oacute;n
+    </button>
+   </div>
+  </header>
+  <main class="page-shell">
+   <span class="eyebrow">
+    CENTRO DE OPERACIONES
+   </span>
+   <h1 class="page-title">
+    Panel administrativo
+   </h1>
+   <p class="page-subtitle">
+    Gestion&aacute; vuelos, aeronaves, aeropuertos, pasajeros, reservas y seguimiento operativo.
+   </p>
+   <div id="admin-message">
+   </div>
+   <div class="stat-grid" id="admin-stats">
+   </div>
+   <div class="admin-layout">
+    <aside class="admin-side" id="admin-nav">
+     <button class="active" data-view="vuelos">
+      Vuelos
+     </button>
+     <button data-view="aeropuertos">
+      Aeropuertos
+     </button>
+     <button data-view="aviones">
+      Aeronaves
+     </button>
+     <button data-view="pasajeros">
+      Pasajeros
+     </button>
+     <button data-view="reservas">
+      Reservas
+     </button>
+     <button data-view="pagos">
+      Pagos
+     </button>
+     <button data-view="equipajes">
+      Equipajes
+     </button>
+     <button data-view="checkin">
+      Check-in
+     </button>
+     <button data-view="usuarios">
+      Usuarios internos
+     </button>
+    </aside>
+    <section class="admin-content">
+     <div id="admin-view">
+     </div>
+    </section>
+   </div>
+  </main>
+  <footer class="footer">
+   <a href="index.html">
+    &larr; P&aacute;gina p&uacute;blica
+   </a>
+   <span>
+    Acceso sujeto a permisos de usuario
+   </span>
+  </footer>
+  <script src="admin.js">
+  </script>
+ </body>
+</html>
+

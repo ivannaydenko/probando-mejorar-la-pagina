@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Aerol&iacute;neas Low Cost | Encontr&aacute; tu pr&oacute;ximo vuelo
+  </title>
+  <link href="styles.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <header class="topbar">
+   <a class="brand" href="index.html">
+    <span class="brand-mark">
+     ✈
+    </span>
+    <span>
+     Aerol&iacute;neas
+     <span class="brand-light">
+      Low Cost
+     </span>
+    </span>
+   </a>
+   <nav class="main-nav">
+    <a class="active" href="index.html">
+     Buscar vuelos
+    </a>
+    <a href="mis-viajes.html">
+     Mis viajes
+    </a>
+    <a href="checkin.html">
+     Check-in
+    </a>
+    <a href="ayuda.html">
+     Ayuda
+    </a>
+   </nav>
+   <div class="account-actions">
+    <span class="user-greeting" id="user-name">
+    </span>
+    <a class="btn btn-quiet" href="login.html" id="login-link">
+     Iniciar sesi&oacute;n
+    </a>
+    <a class="btn btn-primary" href="registro.html" id="register-link">
+     Crear cuenta
+    </a>
+    <button class="btn btn-quiet hidden" id="btn-logout">
+     Salir
+    </button>
+   </div>
+   <button aria-label="Abrir men&uacute;" class="mobile-menu" onclick="document.querySelector('.main-nav').classList.toggle('nav-open')">
+    ☰
+   </button>
+  </header>
+  <main>
+   <section class="hero">
+    <div class="hero-copy">
+     <div class="eyebrow">
+      VIAJ&Aacute; M&Aacute;S, GAST&Aacute; MENOS
+     </div>
+     <h1>
+      Tu pr&oacute;ximo destino
+      <br/>
+      <span>
+       est&aacute; m&aacute;s cerca.
+      </span>
+     </h1>
+     <p>
+      Encontr&aacute; vuelos simples, precios claros y todo lo que necesit&aacute;s para viajar.
+     </p>
+     <div class="hero-points">
+      <span>
+       &checkmark; Precios transparentes
+      </span>
+      <span>
+       &checkmark; Reserva online
+      </span>
+      <span>
+       &checkmark; Gestion&aacute; tu viaje
+      </span>
+     </div>
+    </div>
+    <div class="hero-art">
+     <div class="sun">
+     </div>
+     <div class="route-line">
+     </div>
+     <div class="plane-card">
+      ✈
+      <span>
+       Tu aventura empieza ac&aacute;
+      </span>
+     </div>
+     <div class="cloud cloud-one">
+     </div>
+     <div class="cloud cloud-two">
+     </div>
+     <div class="hill hill-back">
+     </div>
+     <div class="hill hill-front">
+     </div>
+     <div class="destination-card">
+      <span class="mini-label">
+       DESTINOS PARA DESCUBRIR
+      </span>
+      <strong>
+       El mundo te espera.
+      </strong>
+      <span>
+       Eleg&iacute; una ruta y empez&aacute; a planear.
+      </span>
+     </div>
+    </div>
+   </section>
+   <section class="search-section" id="buscar">
+    <div class="section-heading">
+     <div>
+      <span class="eyebrow">
+       PLANIFIC&Aacute; TU VIAJE
+      </span>
+      <h2>
+       &iquest;A d&oacute;nde quer&eacute;s ir?
+      </h2>
+     </div>
+     <span class="muted">
+      Busc&aacute; entre los vuelos disponibles
+     </span>
+    </div>
+    <form class="search-panel" id="flight-form">
+     <label>
+      Origen
+      <select id="origen" required="">
+       <option value="">
+        Cualquier origen
+       </option>
+      </select>
+     </label>
+     <button class="swap-button" id="swap-route" title="Intercambiar origen y destino" type="button">
+      &rlarr;
+     </button>
+     <label>
+      Destino
+      <select id="destino" required="">
+       <option value="">
+        Cualquier destino
+       </option>
+      </select>
+     </label>
+     <label>
+      Fecha de salida
+      <input id="fecha-salida" type="date"/>
+     </label>
+     <label>
+      Fecha de regreso
+      <input id="fecha-regreso" type="date"/>
+     </label>
+     <button class="btn btn-primary search-button" type="submit">
+      &telrec; Buscar vuelos
+     </button>
+    </form>
+    <div aria-live="polite" class="message" id="flight-message">
+    </div>
+    <div class="flight-results" id="flight-results">
+     <div class="empty-panel">
+      <div class="empty-icon">
+       ✈
+      </div>
+      <h3>
+       Tu pr&oacute;ximo viaje empieza ac&aacute;
+      </h3>
+      <p>
+       Eleg&iacute; origen y destino para ver los vuelos disponibles.
+      </p>
+     </div>
+    </div>
+   </section>
+   <section class="benefits">
+    <div>
+     <span class="benefit-icon">
+      ◇
+     </span>
+     <h3>
+      Precios claros
+     </h3>
+     <p>
+      Consult&aacute; el precio antes de confirmar tu reserva.
+     </p>
+    </div>
+    <div>
+     <span class="benefit-icon">
+      ⌁
+     </span>
+     <h3>
+      Todo en un lugar
+     </h3>
+     <p>
+      Administr&aacute; tus viajes, equipaje y check-in online.
+     </p>
+    </div>
+    <div>
+     <span class="benefit-icon">
+      ♡
+     </span>
+     <h3>
+      Vos ten&eacute;s el control
+     </h3>
+     <p>
+      Consult&aacute; tus reservas desde tu cuenta.
+     </p>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <a class="brand" href="index.html">
+    <span class="brand-mark">
+     ✈
+    </span>
+    <span>
+     Aerol&iacute;neas
+     <span class="brand-light">
+      Low Cost
+     </span>
+    </span>
+   </a>
+   <span>
+    Proyecto acad&eacute;mico &middot; Sistema de gesti&oacute;n de vuelos y reservas
+   </span>
+   <a href="admin-login.html">
+    Acceso administrativo
+   </a>
+  </footer>
+  <script src="app.js">
+  </script>
+ </body>
+</html>
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Administraci&oacute;n | Aerol&iacute;neas Low Cost
+  </title>
+  <link href="styles.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <header class="topbar">
+   <a class="brand" href="index.html">
+    <span class="brand-mark">
+     ✈
+    </span>
+    <span>
+     Aerol&iacute;neas
+     <span class="brand-light">
+      Low Cost
+     </span>
+    </span>
+   </a>
+   <nav class="main-nav">
+    <a href="index.html">
+     Volver a la p&aacute;gina
+    </a>
+   </nav>
+  </header>
+  <main class="auth-wrap">
+   <form class="auth-card" id="admin-login-form">
+    <span class="eyebrow">
+     PANEL INTERNO
+    </span>
+    <h1>
+     Administraci&oacute;n
+    </h1>
+    <p>
+     Ingres&aacute; con una cuenta interna habilitada. Los pasajeros deben usar el inicio de sesi&oacute;n habitual.
+    </p>
+    <label class="field">
+     Correo de trabajo
+     <input autocomplete="username" id="admin-email" required="" type="email"/>
+    </label>
+    <label class="field">
+     Contrase&ntilde;a
+     <input autocomplete="current-password" id="admin-password" required="" type="password"/>
+    </label>
+    <div aria-live="polite" class="message" id="admin-auth-message">
+    </div>
+    <button class="btn btn-primary" type="submit">
+     Entrar al panel
+    </button>
+    <div class="auth-note">
+     La cuenta inicial se crea desde la consola con el comando indicado en README.txt.
+    </div>
+   </form>
+  </main>
+  <script src="admin-login.js">
+  </script>
+ </body>
+</html>
+

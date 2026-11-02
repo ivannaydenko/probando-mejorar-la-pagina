@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Iniciar sesi&oacute;n | Aerol&iacute;neas Low Cost
+  </title>
+  <link href="styles.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <header class="topbar">
+   <a class="brand" href="index.html">
+    <span class="brand-mark">
+     ✈
+    </span>
+    <span>
+     Aerol&iacute;neas
+     <span class="brand-light">
+      Low Cost
+     </span>
+    </span>
+   </a>
+   <nav class="main-nav">
+    <a href="index.html">
+     Buscar vuelos
+    </a>
+    <a href="mis-viajes.html">
+     Mis viajes
+    </a>
+    <a href="checkin.html">
+     Check-in
+    </a>
+   </nav>
+   <div class="account-actions">
+    <a class="btn btn-primary" href="registro.html">
+     Crear cuenta
+    </a>
+   </div>
+  </header>
+  <main class="auth-wrap">
+   <form class="auth-card" id="login-form">
+    <span class="eyebrow">
+     QU&Eacute; BUENO VERTE DE NUEVO
+    </span>
+    <h1>
+     Inici&aacute; sesi&oacute;n
+    </h1>
+    <p>
+     Entr&aacute; a tu cuenta para reservar vuelos y administrar tus viajes.
+    </p>
+    <label class="field">
+     Correo electr&oacute;nico
+     <input autocomplete="email" id="email" required="" type="email"/>
+    </label>
+    <label class="field">
+     Contrase&ntilde;a
+     <input autocomplete="current-password" id="password" required="" type="password"/>
+    </label>
+    <div aria-live="polite" class="message" id="auth-message">
+    </div>
+    <button class="btn btn-primary" type="submit">
+     Iniciar sesi&oacute;n
+    </button>
+    <div class="auth-note">
+     &iquest;Todav&iacute;a no ten&eacute;s cuenta?
+     <a href="registro.html" style="color:var(--blue);font-weight:700">
+      Registrate
+     </a>
+    </div>
+   </form>
+  </main>
+  <footer class="footer">
+   <a href="index.html">
+    &larr; Volver a buscar vuelos
+   </a>
+   <a href="admin-login.html">
+    Acceso administrativo
+   </a>
+  </footer>
+  <script src="login.js">
+  </script>
+ </body>
+</html>
+

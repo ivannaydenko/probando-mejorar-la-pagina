@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Mi cuenta | Aerol&iacute;neas Low Cost
+  </title>
+  <link href="styles.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <header class="topbar">
+   <a class="brand" href="index.html">
+    <span class="brand-mark">
+     ✈
+    </span>
+    <span>
+     Aerol&iacute;neas
+     <span class="brand-light">
+      Low Cost
+     </span>
+    </span>
+   </a>
+   <nav class="main-nav">
+    <a href="index.html">
+     Buscar vuelos
+    </a>
+    <a href="mis-viajes.html">
+     Mis viajes
+    </a>
+    <a href="checkin.html">
+     Check-in
+    </a>
+    <a class="active" href="mi-cuenta.html">
+     Mi cuenta
+    </a>
+   </nav>
+   <div class="account-actions">
+    <span class="user-greeting" id="user-name">
+    </span>
+    <button class="btn btn-quiet" id="btn-logout">
+     Cerrar sesi&oacute;n
+    </button>
+   </div>
+  </header>
+  <main class="page-shell">
+   <span class="eyebrow">
+    TUS DATOS
+   </span>
+   <h1 class="page-title">
+    Mi cuenta
+   </h1>
+   <p class="page-subtitle">
+    Manten&eacute; actualizados tus datos de contacto.
+   </p>
+   <div class="panel">
+    <h2>
+     Datos personales
+    </h2>
+    <form class="grid-2" id="profile-form">
+     <label class="field">
+      Nombre completo
+      <input id="profile-name" required=""/>
+     </label>
+     <label class="field">
+      Correo electr&oacute;nico
+      <input id="profile-email" required="" type="email"/>
+     </label>
+     <label class="field">
+      Tel&eacute;fono
+      <input id="profile-phone" type="tel"/>
+     </label>
+     <label class="field">
+      Pasaporte / documento
+      <input disabled="" id="profile-passport"/>
+     </label>
+     <div class="form-actions">
+      <button class="btn btn-primary">
+       Guardar cambios
+      </button>
+     </div>
+    </form>
+    <div class="message" id="profile-message">
+    </div>
+   </div>
+   <div class="panel">
+    <h2>
+     Cambiar contrase&ntilde;a
+    </h2>
+    <form class="grid-2" id="password-form">
+     <label class="field">
+      Contrase&ntilde;a actual
+      <input id="old-password" required="" type="password"/>
+     </label>
+     <label class="field">
+      Nueva contrase&ntilde;a (m&iacute;nimo 8)
+      <input id="new-password" minlength="8" required="" type="password"/>
+     </label>
+     <div class="form-actions">
+      <button class="btn btn-primary">
+       Actualizar contrase&ntilde;a
+      </button>
+     </div>
+    </form>
+    <div class="message" id="password-message">
+    </div>
+   </div>
+  </main>
+  <footer class="footer">
+   <a href="index.html">
+    &larr; Volver al inicio
+   </a>
+   <span>
+    Aerol&iacute;neas Low Cost
+   </span>
+  </footer>
+  <script src="mi_cuenta.js">
+  </script>
+ </body>
+</html>
+
