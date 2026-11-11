@@ -22,6 +22,12 @@ const moneyTravel = value => new Intl.NumberFormat('es-AR', {
 const dateTravel = value => value
   ? new Date(String(value).replace(' ', 'T')).toLocaleString('es-AR', { dateStyle: 'medium', timeStyle: 'short' })
   : '—';
+const canCheckInWindow = value => {
+  const salida = value instanceof Date ? value : new Date(String(value).replace(' ', 'T'));
+  if (Number.isNaN(salida.getTime())) return false;
+  const now = new Date();
+  return now < salida && (salida - now) <= 48 * 60 * 60 * 1000;
+};
 
  document.addEventListener('DOMContentLoaded', async () => {
   const token = localStorage.getItem('alcToken');
@@ -53,7 +59,7 @@ const dateTravel = value => value
     try {
       const reservations = await apiTravel('/api/mis-reservas');
       if (!Array.isArray(reservations) || reservations.length === 0) {
-        box.innerHTML = '<div class="empty-panel"><div class="empty-icon">✈</div><h3>Todavía no tenés reservas</h3><p>Si acabás de reservar, confirma que la reserva se haya creado y vuelve a cargar esta página.</p><a class="btn btn-primary" href="index.html">Buscar vuelos</a></div>';
+        box.innerHTML = '<div class="empty-panel"><div class="empty-icon">✈</div><h3>Todavía no tenés reservas</h3><p>Si acabás de reservar, confirma que la reserva se haya creado y vuelve a intentarlo.</p><a class="btn btn-primary" href="index.html">Buscar vuelos</a></div>';
         return;
       }
 
@@ -61,7 +67,7 @@ const dateTravel = value => value
         const id = Number(reservation.IdReserva);
         const status = reservation.EstadoReserva || 'Pendiente';
         const canPay = status === 'Pendiente de pago' && reservation.EstadoPago !== 'Aprobado';
-        const canCheckIn = ['Confirmada', 'Completada'].includes(status);
+        const canCheckIn = ['Confirmada', 'Completada'].includes(status) && canCheckInWindow(reservation.FechaHoraSalida);
         const canManage = !['Cancelada', 'Completada'].includes(status);
         return `<article class="reservation-card">
           <div>
