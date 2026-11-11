@@ -1,83 +1,98 @@
 <!DOCTYPE html>
 <html lang="es">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   Ayuda - AerolineasLowCost
-  </title>
-  <link href="styles.css" rel="stylesheet"/>
- </head>
- <body>
-  <header class="navbar">
-   <div class="logo">
-    AerolineasLowCost
-   </div>
-   <nav>
-    <a href="index.html">
-     Buscar Vuelos
-    </a>
-    <a href="mis-viajes.html">
-     Mis Viajes
-    </a>
-    <a href="checkin.html">
-     Check-in
-    </a>
-    <a href="ayuda.html">
-     Ayuda
-    </a>
-    <a href="mi-cuenta.html">
-     Mi cuenta
-    </a>
-   </nav>
-   <div class="user-section">
-    <span id="user-name">
-    </span>
-    <button id="btn-login">
-     Iniciar sesi&oacute;n
-    </button>
-    <button class="hidden" id="btn-logout">
-     Cerrar sesi&oacute;n
-    </button>
-   </div>
-  </header>
-  <main class="internal-page">
-   <div class="page-container">
-    <h1 class="page-title">
-     Ayuda
-    </h1>
-    <div class="help-card">
-     <h2>
-      Soporte t&eacute;cnico
-     </h2>
-     <p>
-      Si ten&eacute;s alg&uacute;n problema con la p&aacute;gina,
-                tus reservas o el Check-in, pod&eacute;s
-                comunicarte con nuestro soporte t&eacute;cnico.
-     </p>
-     <p>
-      <strong>
-       Correo:
-      </strong>
-      soporte@aerolineaslowcost.com
-     </p>
-     <p>
-      <strong>
-       Tel&eacute;fono:
-      </strong>
-      0800-123-4567
-     </p>
-     <p>
-      <strong>
-       Horario:
-      </strong>
-      Lunes a viernes de 08:00 a 18:00.
-     </p>
-    </div>
-   </div>
-  </main>
-  <script src="ayuda.js">
-  </script>
- </body>
-</html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Ayuda | Aerolíneas Low Cost</title>
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">✈</span>
+        <span>
+          Aerolíneas
+          <span class="brand-light">Low Cost</span>
+        </span>
+      </a>
 
+      <nav class="main-nav">
+        <a href="index.html">Buscar vuelos</a>
+        <a href="mis-viajes.html">Mis viajes</a>
+        <a href="checkin.html">Check-in</a>
+        <a class="active" href="ayuda.html">Ayuda</a>
+        <a href="mi-cuenta.html">Mi cuenta</a>
+      </nav>
+
+      <div class="account-actions">
+        <span class="user-greeting" id="user-name"></span>
+        <a class="btn btn-quiet" href="login.html" id="login-link">Iniciar sesión</a>
+        <button class="btn btn-quiet hidden" id="btn-logout">Cerrar sesión</button>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <span class="eyebrow">ATENCIÓN AL CLIENTE</span>
+      <h1 class="page-title">Ayuda</h1>
+      <p class="page-subtitle">Encontrá respuestas rápidas para reservas, pagos, equipaje y check-in.</p>
+
+      <div class="help-layout">
+        <section class="help-card">
+          <h2>Soporte técnico</h2>
+          <p>
+            Si tenés algún problema con la página, tus reservas, el pago o el check-in, podés comunicarte
+            con nuestro equipo de soporte para resolverlo de forma rápida y clara.
+          </p>
+
+          <div class="help-contact">
+            <div>
+              <strong>Correo</strong>
+              <a href="mailto:soporte@aerolineaslowcost.com">soporte@aerolineaslowcost.com</a>
+            </div>
+            <div>
+              <strong>Teléfono</strong>
+              <a href="tel:08001234567">0800-123-4567</a>
+            </div>
+            <div>
+              <strong>Horario</strong>
+              <span>Lunes a viernes de 08:00 a 18:00</span>
+            </div>
+          </div>
+        </section>
+
+        <aside class="help-panel">
+          <div class="help-item">
+            <span>⏱</span>
+            <div>
+              <h3>Atención rápida</h3>
+              <p>Respondemos consultas de reservas, pagos y accesos en horario de atención.</p>
+            </div>
+          </div>
+
+          <div class="help-item">
+            <span>✈</span>
+            <div>
+              <h3>Reservas y vuelos</h3>
+              <p>Consultá cambios de fechas, confirmación de pagos y disponibilidad de asientos.</p>
+            </div>
+          </div>
+
+          <div class="help-item">
+            <span>🧳</span>
+            <div>
+              <h3>Equipaje y check-in</h3>
+              <p>Podés consultar condiciones de equipaje y el procedimiento de check-in online.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <a href="index.html">&larr; Buscar vuelos</a>
+      <span>Aerolíneas Low Cost</span>
+    </footer>
+
+    <script src="ayuda.js"></script>
+  </body>
+</html>
