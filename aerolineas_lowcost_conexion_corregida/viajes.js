@@ -39,6 +39,9 @@ const canCheckInWindow = value => {
   return now < salida && (salida - now) <= 48 * 60 * 60 * 1000;
 };
 
+const CANCELLED_RESERVATION_KEY = 'alcCancelledReservationAt:';
+const CANCELLED_RESERVATION_DISPLAY_MS = 60 * 1000;
+
 document.addEventListener('DOMContentLoaded', async () => {
   const token = localStorage.getItem('alcToken');
   if (!token) {
@@ -60,7 +63,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       try {
         await apiTravel('/api/logout', { method: 'POST' });
       } catch (error) {
-        // Ignoramos el error ya que la sesión local debe cerrarse igual.
+        // Cerramos también la sesión local si la petición al servidor falla.
       }
       localStorage.removeItem('alcToken');
       localStorage.removeItem('alcName');
@@ -74,6 +77,33 @@ document.addEventListener('DOMContentLoaded', async () => {
     message.textContent = text;
     message.className = `message ${type}`;
   };
+
+  function scheduleCancelledReservationRemoval(idReserva) {
+    const storageKey = `${CANCELLED_RESERVATION_KEY}${idReserva}`;
+    const cancelledAt = Number(sessionStorage.getItem(storageKey));
+    if (!cancelledAt) return;
+
+    const remaining = CANCELLED_RESERVATION_DISPLAY_MS - (Date.now() - cancelledAt);
+    const removeCard = () => {
+      box.querySelector(`[data-reservation-id="${idReserva}"]`)?.remove();
+      sessionStorage.removeItem(storageKey);
+      if (!box.querySelector('.reservation-card')) {
+        box.innerHTML = `
+          <div class="empty-panel">
+            <div class="empty-icon">✈</div>
+            <h3>No tenés reservas para mostrar</h3>
+            <a class="btn btn-primary" href="index.html">Buscar vuelos</a>
+          </div>
+        `;
+      }
+    };
+
+    if (remaining <= 0) {
+      removeCard();
+      return;
+    }
+    window.setTimeout(removeCard, remaining);
+  }
 
   async function loadReservations() {
     if (!box) return;
@@ -102,7 +132,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const canManage = !['Cancelada', 'Completada'].includes(status);
 
         return `
-          <article class="reservation-card">
+          <article class="reservation-card" data-reservation-id="${id}">
             <div>
               <h3>${escTravel(reserva.CiudadOrigen || reserva.Origen)} (${escTravel(reserva.Origen)}) → ${escTravel(reserva.CiudadDestino || reserva.Destino)} (${escTravel(reserva.Destino)})</h3>
               <p><strong>Código:</strong> ${escTravel(reserva.CodigoReserva)}</p>
@@ -124,11 +154,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         `;
       }).join('');
 
+      reservas
+        .filter(reserva => reserva.EstadoReserva === 'Cancelada')
+        .forEach(reserva => scheduleCancelledReservationRemoval(Number(reserva.IdReserva)));
+
       box.querySelectorAll('[data-action]').forEach(button => {
         button.addEventListener('click', async () => {
-          const action = button.dataset.action;
-          const id = Number(button.dataset.id);
-          await handleAction(action, id);
+          await handleAction(button.dataset.action, Number(button.dataset.id));
         });
       });
     } catch (error) {
@@ -139,8 +171,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           <button class="btn btn-quiet" id="retry-reservations">Reintentar</button>
         </div>
       `;
-      const retry = document.getElementById('retry-reservations');
-      if (retry) retry.addEventListener('click', loadReservations);
+      document.getElementById('retry-reservations')?.addEventListener('click', loadReservations);
     }
   }
 
@@ -162,13 +193,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             Ultimos4: '4242'
           })
         });
-
         showMessage(result.mensaje || 'Pago registrado.', 'success');
       } else if (action === 'cancel') {
         if (!confirm('¿Querés cancelar esta reserva?')) return;
 
         await apiTravel(`/api/reservas/${idReserva}`, { method: 'DELETE' });
-        showMessage('Reserva cancelada.', 'success');
+        sessionStorage.setItem(`${CANCELLED_RESERVATION_KEY}${idReserva}`, String(Date.now()));
+        showMessage('Reserva cancelada. Se quitará de la lista en un minuto.', 'success');
       } else if (action === 'bag') {
         await apiTravel('/api/equipajes', {
           method: 'POST',
